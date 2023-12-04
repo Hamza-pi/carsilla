@@ -59,7 +59,7 @@ const Login = () => {
                   Forgot Password?
                 </h3>
               </Link>
-              <Link to="/">
+              <Link to="/dashboard">
                 <button className="w-full bg-primary rounded-full py-3 text-white text-base">
                   Login
                 </button>
