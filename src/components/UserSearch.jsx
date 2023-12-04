@@ -5,6 +5,7 @@ import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const UserSearch = () => {
   const [open, setOpen] = useState(false);
@@ -222,12 +223,14 @@ const UserSearch = () => {
         {/* Footer */}
         <div className="px-4 py-3 border-t-[1px] border-t-[#EFF4FA]">
           <div className="flex items-center justify-end gap-x-8 text-[13px] leading-[16px]">
-            <button
-              type="submit"
-              className="font-semibold w-[88px] h-[28px] rounded-lg bg-secondary text-white"
-            >
-              Add User
-            </button>
+            <Link to="/dashboard/user">
+              <button
+                type="submit"
+                className="font-semibold w-[88px] h-[28px] rounded-lg bg-secondary text-white"
+              >
+                Add User
+              </button>
+            </Link>
             <button onClick={() => setOpen(false)} className="text-[#8F9BB3]">
               Cancel
             </button>
