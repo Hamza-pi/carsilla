@@ -12,8 +12,8 @@ const SideBar = () => {
       title: "Dashboard",
       route: "/dashboard",
       subLinks: [
-        { title: "Analytics", route: "/dashboard" },
-        { title: "Seller Profiles", route: "/dashboard" },
+        { title: "Analytics", route: "/dashboard/analytics" },
+        { title: "Seller Profiles", route: "/dashboard/sellerprofiles" },
         { title: "User Profiles", route: "/dashboard" },
       ],
     },
@@ -48,7 +48,7 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="lg:w-auto w-full relative">
+    <div className="lg:w-auto scrollbar w-full relative">
       {/* Menu Icon */}
       <div className="lg:w-0 w-full px-4 bg-greyBg z-40">
         <FcMenu
@@ -72,7 +72,11 @@ const SideBar = () => {
               <Link
                 to={link.route}
                 className={`lg:py-3 py-1 lg:px-14 px-4 w-full flex hover:bg-greyBg border  hover:border-borderColor rounded-lg transition-all delay-150 ease-linear ${
-                  location.pathname === link.route
+                  i === 0
+                    ? location.pathname.includes("/dashboard")
+                      ? "bg-greyBg border-borderColor"
+                      : "bg-white border-transparent"
+                    : location.pathname === link.route
                     ? "bg-greyBg border-borderColor"
                     : "bg-white border-transparent"
                 }`}
@@ -88,7 +92,11 @@ const SideBar = () => {
                     <li key={j}>
                       <Link
                         to={subLink.route}
-                        className="py-2 px-4 w-full flex hover:bg-greyBg border border-transparent hover:border-borderColor rounded-lg transition-all delay-150 ease-linear"
+                        className={`py-2 px-4 w-full flex hover:bg-greyBg border hover:border-borderColor rounded-lg transition-all delay-150 ease-linear ${
+                          location.pathname===subLink.route
+                            ? "bg-greyBg border-borderColor"
+                            : "bg-white border-transparent"
+                        }`}
                       >
                         {subLink.title}
                       </Link>

@@ -21,11 +21,16 @@ export default {
         lightBlue:"#EFF4FA",
         textBluish:"#222B45",
         darkGrey:"#717171",
-        lightGrey:"#8F9BB3"
+        lightGrey:"#8F9BB3",
+        pink:"#FF5470",
+        green:"#02A189",
+        darkBtn:"#0E335F"
       },
       boxShadow: {
         sideShadow: "0px 3px 14px 0px rgba(226, 225, 225, 0.7672)",
-        btnShadow:"2.5px 4.300000190734863px 10px 0px #0000001A"
+        btnShadow:"2.5px 4.300000190734863px 10px 0px #0000001A",
+        boxShadow:"0px 3px 14px 0px #E2E1E1C4",
+        btnShadow2:"0px 1px 10px 0px #02CAAB5B"
       },
       fontFamily: {
         archivo: "Archivo, sans-serif",
