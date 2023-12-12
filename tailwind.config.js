@@ -32,7 +32,12 @@ export default {
         btnShadow:"2.5px 4.300000190734863px 10px 0px #0000001A",
         boxShadow:"0px 3px 14px 0px #E2E1E1C4",
         btnShadow2:"0px 1px 10px 0px #02CAAB5B",
-        pageBtn:"0px 1px 6px 0px #035ECF48"
+        btnShadow3:"0px 1px 8px 0px #035ECF82",
+        pageBtn:"0px 1px 6px 0px #035ECF48",
+        pBar1:"2px 1px 4px 0px #1065D0D8",
+        pBar2:"2px 1px 4px 0px #AE27015C",
+        pBar3:"2px 1px 4px 0px #777777B8",
+        pBar4:"2px 1px 4px 0px #AE9E0185"
       },
       fontFamily: {
         archivo: "Archivo, sans-serif",

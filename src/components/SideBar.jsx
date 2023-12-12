@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FcMenu } from "react-icons/fc";
 
@@ -19,7 +19,7 @@ const SideBar = () => {
     },
     {
       title: "Services",
-      route: "",
+      route: "/admin/services",
     },
     {
       title: "Orders",
@@ -38,14 +38,18 @@ const SideBar = () => {
       route: "",
     },
     {
-      title: "Transactions",
+      title: "Orders Requested",
       route: "",
     },
     {
       title: "Settings",
-      route: "",
+      route: "/admin/setting",
     },
   ];
+
+  useEffect(() => {
+    location.pathname.includes("/admin") ? setDropDown(false) : null;
+  }, [location.pathname]);
 
   return (
     <div className="lg:w-auto scrollbar w-full relative">
@@ -68,12 +72,19 @@ const SideBar = () => {
         {/* Links */}
         <ul className="sm:w-[266px] 2xl:w-[320px] w-[200px] h-full justify-center flex flex-col gap-y-2">
           {links.map((link, i) => (
-            <li key={i} className="min-w-full font-bold last:border-t">
+            <li
+              key={i}
+              className="min-w-full font-bold last:border-t last:py-4"
+            >
               <Link
                 to={link.route}
-                className={`lg:py-3 py-1 lg:px-14 px-4 w-full flex hover:bg-greyBg border  hover:border-borderColor rounded-lg transition-all delay-150 ease-linear ${
+                className={`lg:py-3 py-1 lg:px-14 px-4 w-full flex items-center justify-between hover:bg-greyBg border  hover:border-borderColor rounded-lg transition-all delay-150 ease-linear ${
                   i === 0
                     ? location.pathname.includes("/dashboard")
+                      ? "bg-greyBg border-borderColor"
+                      : "bg-white border-transparent"
+                    : i === links.length - 1
+                    ? location.pathname.includes("/setting")
                       ? "bg-greyBg border-borderColor"
                       : "bg-white border-transparent"
                     : location.pathname === link.route
@@ -81,10 +92,15 @@ const SideBar = () => {
                     : "bg-white border-transparent"
                 }`}
                 onClick={() => {
-                  i === 0 ? setDropDown(!dropDown) : null;
+                  i === 0 ? setDropDown(!dropDown) : setDropDown(false);
                 }}
               >
                 {link.title}
+                {
+                  i===links.length-2?<span className="px-2 py-1 bg-[#00BA9D] text-white font-archivo font-bold text-[13px] leading-[14.14px] text-center rounded-lg">
+                  247
+                </span>:null
+                }
               </Link>
               {link.subLinks?.length > 0 && dropDown ? (
                 <ul className="w-[80%] float-right py-2">
@@ -93,7 +109,7 @@ const SideBar = () => {
                       <Link
                         to={subLink.route}
                         className={`py-2 px-4 w-full flex hover:bg-greyBg border hover:border-borderColor rounded-lg transition-all delay-150 ease-linear ${
-                          location.pathname===subLink.route
+                          location.pathname === subLink.route
                             ? "bg-greyBg border-borderColor"
                             : "bg-white border-transparent"
                         }`}

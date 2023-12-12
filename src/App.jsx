@@ -8,6 +8,9 @@ import Users from "./pages/Users";
 import Analytics from "./pages/Analytics";
 import SellerProfiles from "./pages/SellerProfiles";
 import UserProfiles from "./pages/UserProfiles";
+import UserSettings from "./pages/UserSettings";
+import SellerSettings from "./pages/SellerSettings";
+import Services from "./pages/Services"
 
 const App = () => {
   return (
@@ -21,6 +24,11 @@ const App = () => {
             <Route path="analytics" element={<Analytics />} />
             <Route path="sellerprofiles" element={<SellerProfiles />} />
             <Route path="userprofiles" element={<UserProfiles/>}/>
+          </Route>
+          <Route path="/admin" element={<Layout/>}>
+            <Route path="setting/user" element={<UserSettings/>}/>
+            <Route path="setting" element={<SellerSettings/>}/>
+            <Route path="services" element={<Services/>}/>
           </Route>
         </Routes>
       </Router>

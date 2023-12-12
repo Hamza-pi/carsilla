@@ -4,6 +4,7 @@ import TitleBar from "../components/TitleBar";
 import UserProfCard from "../components/UserProfCard";
 
 const UserProfiles = () => {
+  
   const allData = [1, 2, 3, 4, 5, 6, 7, 8];
 
   const [currentPage, setCurrentPage] = useState(1);

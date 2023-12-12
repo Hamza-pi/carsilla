@@ -2,6 +2,7 @@ import { TbLineScan } from "react-icons/tb";
 import { MdDiamond } from "react-icons/md";
 import Switch from "react-switch";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SellerProfCard = () => {
   const [checked, setChecked] = useState(false);
@@ -25,7 +26,7 @@ const SellerProfCard = () => {
     <div className="bg-white shadow-boxShadow rounded-md py-4 px-3 font-openSans flex flex-wrap gap-6 items-start justify-between 2xl:h-[270px] h-auto">
       {/* User Details */}
       <div className="details flex sm:w-auto w-full sm:flex-row flex-col items-start justify-between gap-6">
-        <div className="left space-y-6 sm:w-auto w-full">
+        <div className="left flex flex-col gap-6 sm:w-auto w-full">
           <div className="image sm:w-[191px] w-full h-[156px] rounded-xl">
             <img
               src="/images/seller1.png"
@@ -33,9 +34,11 @@ const SellerProfCard = () => {
               className="w-full h-full object-cover object-center rounded-xl"
             />
           </div>
-          <button className="bg-darkBtn w-full rounded-full py-2 text-white font-bold leading-[21.79px] shadow-btnShadow2">
-            Profile
-          </button>
+          <Link to="/admin/setting">
+            <button className="bg-darkBtn w-full rounded-full py-2 text-white font-bold leading-[21.79px] shadow-btnShadow2">
+              Profile
+            </button>
+          </Link>
         </div>
         <div className="content space-y-4 sm:w-auto w-full sm:block flex items-center justify-between flex-wrap">
           <h3 className="font-bold text-[22px] leading-[34px] text-textDark">

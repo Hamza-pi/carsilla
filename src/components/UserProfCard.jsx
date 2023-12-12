@@ -1,10 +1,101 @@
 import { TbLineScan } from "react-icons/tb";
 import { MdDiamond } from "react-icons/md";
-import Switch from "react-switch";
-import { useState } from "react";
+import CSwitch from "./CSwitch";
+import { useReducer } from "react";
+import { Link } from "react-router-dom";
 
 const UserProfCard = () => {
-  const [checked, setChecked] = useState(false);
+  const initialState = {
+    workShop: {
+      accessibility: false,
+      fee: false,
+    },
+    assistance: {
+      accessibility: false,
+      fee: false,
+    },
+    insurance: {
+      accessibility: false,
+      fee: false,
+    },
+    spareParts: {
+      accessibility: false,
+      fee: false,
+    },
+  };
+
+  const switchReducer = (state, action) => {
+    switch (action.type) {
+      case "workShop_access":
+        return {
+          ...state,
+          workShop: {
+            ...state.workShop,
+            accessibility: action.payload,
+          },
+        };
+      case "workShop_fee":
+        return {
+          ...state,
+          workShop: {
+            ...state.workShop,
+            fee: action.payload,
+          },
+        };
+      case "assistance_access":
+        return {
+          ...state,
+          assistance: {
+            ...state.assistance,
+            accessibility: action.payload,
+          },
+        };
+      case "assistance_fee":
+        return {
+          ...state,
+          assistance: {
+            ...state.assistance,
+            fee: action.payload,
+          },
+        };
+      case "insurance_access":
+        return {
+          ...state,
+          insurance: {
+            ...state.insurance,
+            accessibility: action.payload,
+          },
+        };
+      case "insurance_fee":
+        return {
+          ...state,
+          insurance: {
+            ...state.insurance,
+            fee: action.payload,
+          },
+        };
+      case "spareParts_access":
+        return {
+          ...state,
+          spareParts: {
+            ...state.spareParts,
+            accessibility: action.payload,
+          },
+        };
+      case "spareParts_fee":
+        return {
+          ...state,
+          spareParts: {
+            ...state.spareParts,
+            fee: action.payload,
+          },
+        };
+      default:
+        return state;
+    }
+  };
+
+  const [state, dispatch] = useReducer(switchReducer, initialState);
 
   const statItems = [
     {
@@ -21,11 +112,42 @@ const UserProfCard = () => {
     },
   ];
 
+  const options = [
+    {
+      title: "Workshop",
+      accessibility: state.workShop.accessibility,
+      fee: state.workShop.fee,
+      type: "workShop_access",
+      type2: "workShop_fee",
+    },
+    {
+      title: "Home/Road Assistance",
+      accessibility: state.assistance.accessibility,
+      fee: state.assistance.fee,
+      type: "assistance_access",
+      type2: "assistance_fee",
+    },
+    {
+      title: "Car Insurance",
+      accessibility: state.insurance.accessibility,
+      fee: state.insurance.fee,
+      type: "insurance_access",
+      type2: "insurance_fee",
+    },
+    {
+      title: "Spare Parts",
+      accessibility: state.spareParts.accessibility,
+      fee: state.spareParts.fee,
+      type: "spareParts_access",
+      type2: "spareParts_fee",
+    },
+  ];
+
   return (
-    <div className="bg-white shadow-boxShadow rounded-md py-4 px-3 font-openSans flex flex-wrap gap-6 items-start justify-between 2xl:h-[270px] h-auto">
+    <div className="bg-white shadow-boxShadow rounded-md py-4 px-3 font-openSans flex flex-wrap gap-6 items-start justify-between">
       {/* User Details */}
       <div className="details flex sm:w-auto w-full sm:flex-row flex-col items-start justify-between gap-6">
-        <div className="left space-y-6 sm:w-auto w-full">
+        <div className="left flex flex-col gap-6 sm:w-auto w-full">
           <div className="image sm:w-[191px] w-full h-[156px] rounded-xl">
             <img
               src="/images/seller1.png"
@@ -33,9 +155,11 @@ const UserProfCard = () => {
               className="w-full h-full object-cover object-center rounded-xl"
             />
           </div>
-          <button className="bg-[#00BA9D] border border-[#01C8A9] w-full rounded-full py-2 text-white font-bold leading-[21.79px] shadow-btnShadow2">
-            Profile
-          </button>
+          <Link to="/admin/setting/user">
+            <button className="bg-[#00BA9D] border border-[#01C8A9] w-full rounded-full py-2 text-white font-bold leading-[21.79px] shadow-btnShadow2">
+              Profile
+            </button>
+          </Link>
         </div>
         <div className="content space-y-4 sm:w-auto w-full sm:block flex items-center justify-between flex-wrap">
           <h3 className="font-bold text-[22px] leading-[34px] text-textDark">
@@ -101,6 +225,52 @@ const UserProfCard = () => {
         </div>
       </div>
       {/* Switch */}
+      <div className="switches_container flex items-start 2xl:gap-x-14 justify-between 2xl:w-auto w-full font-roboto">
+        <div className="access">
+          <h3 className="font-bold text-[20px] leading-[24px] text-textDark">
+            Services Accessibility
+          </h3>
+          <ul className="switches pt-3 flex flex-col gap-6">
+            {options.map((item, i) => (
+              <li key={i} className="flex items-center justify-between">
+                <p className="font-bold text-sm leading-[21px] text-profileCard">
+                  {item.title}
+                </p>
+                <CSwitch
+                  checked={item.accessibility}
+                  dispatch={dispatch}
+                  type={item.type}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="fee">
+          <h3 className="font-bold text-[20px] leading-[24px] text-textDark">
+            Service Fee on Order
+          </h3>
+          <ul className="switches pt-3 flex flex-col gap-6">
+            {options.map((item, i) => (
+              <li key={i} className="flex items-center justify-center">
+                <CSwitch
+                  checked={item.fee}
+                  dispatch={dispatch}
+                  type={item.type2}
+                />
+              </li>
+            ))}
+          </ul>
+          {/* Buttons */}
+          <div className="buttons pt-3 flex items-center gap-2">
+            <button className="w-[83px] h-[40px] border border-[#DCDCDC] bg-[#F1F1F1] rounded-lg font-[500] text-sm leading-[16.94px] text-[#202020]">
+              Discard
+            </button>
+            <button className="w-[83px] h-[40px] border border-[#DCDCDC] bg-primary rounded-lg font-[500] text-sm leading-[16.94px] text-white">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
