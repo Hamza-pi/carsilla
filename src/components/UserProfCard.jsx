@@ -3,19 +3,19 @@ import { MdDiamond } from "react-icons/md";
 import Switch from "react-switch";
 import { useState } from "react";
 
-const SellerProfCard = () => {
+const UserProfCard = () => {
   const [checked, setChecked] = useState(false);
 
   const statItems = [
     {
       count: 234,
-      title: "New Orders",
+      title: "Past Orders",
       icon: <TbLineScan />,
       bg: "bg-[#00BA9D]",
     },
     {
-      count: "$23k",
-      title: "Income",
+      count: "$23000",
+      title: "Total Spent",
       icon: <MdDiamond />,
       bg: "bg-[#0A458F]",
     },
@@ -33,7 +33,7 @@ const SellerProfCard = () => {
               className="w-full h-full object-cover object-center rounded-xl"
             />
           </div>
-          <button className="bg-darkBtn w-full rounded-full py-2 text-white font-bold leading-[21.79px] shadow-btnShadow2">
+          <button className="bg-[#00BA9D] border border-[#01C8A9] w-full rounded-full py-2 text-white font-bold leading-[21.79px] shadow-btnShadow2">
             Profile
           </button>
         </div>
@@ -57,7 +57,6 @@ const SellerProfCard = () => {
             <a href="mailto:emailalbo_store@email.com">
               emailalbo_store@email.com
             </a>
-            F
           </div>
         </div>
       </div>
@@ -102,42 +101,8 @@ const SellerProfCard = () => {
         </div>
       </div>
       {/* Switch */}
-      <div className="fee">
-        <h3 className="font-bold leading-[24px] text-textDark">
-          Fee on ordering service
-        </h3>
-        <div className="switch pt-6">
-          <div className="flex items-center text-[13px] font-bold text-textDark leading-[34px] gap-x-4">
-            <p>Disable</p>
-            <p>Enable</p>
-          </div>
-          <Switch
-            checked={checked}
-            onChange={(check) => setChecked(check)}
-            height={40}
-            width={88}
-            onColor="#A41F1F"
-            offColor="#EDEDED"
-            onHandleColor="#FFFFFF"
-            offHandleColor="#969696"
-            uncheckedIcon={false}
-            checkedIcon={false}
-            handleDiameter={38}
-            className="react-switch"
-          />
-        </div>
-      </div>
-      {/* Buttons */}
-      <div className="btns flex flex-col gap-4 items-center justify-center sm:w-auto w-full sm:min-h-full sm:pr-4">
-        <button className="w-[176px] h-[46px] rounded-lg font-bold leading-[1.5rem] bg-green text-white uppercase">
-          Activate
-        </button>
-        <button className="w-[176px] h-[46px] rounded-lg font-bold leading-[1.5rem] bg-primary text-white uppercase">
-          Suspend account
-        </button>
-      </div>
     </div>
   );
 };
 
-export default SellerProfCard;
+export default UserProfCard;

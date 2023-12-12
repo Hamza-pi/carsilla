@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Users from "./pages/Users";
 import Analytics from "./pages/Analytics";
 import SellerProfiles from "./pages/SellerProfiles";
+import UserProfiles from "./pages/UserProfiles";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="user" element={<Users />} />
             <Route path="analytics" element={<Analytics />} />
             <Route path="sellerprofiles" element={<SellerProfiles />} />
+            <Route path="userprofiles" element={<UserProfiles/>}/>
           </Route>
         </Routes>
       </Router>

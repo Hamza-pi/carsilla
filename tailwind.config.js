@@ -24,13 +24,15 @@ export default {
         lightGrey:"#8F9BB3",
         pink:"#FF5470",
         green:"#02A189",
-        darkBtn:"#0E335F"
+        darkBtn:"#0E335F",
+        profileCard:"#6E757F",
       },
       boxShadow: {
         sideShadow: "0px 3px 14px 0px rgba(226, 225, 225, 0.7672)",
         btnShadow:"2.5px 4.300000190734863px 10px 0px #0000001A",
         boxShadow:"0px 3px 14px 0px #E2E1E1C4",
-        btnShadow2:"0px 1px 10px 0px #02CAAB5B"
+        btnShadow2:"0px 1px 10px 0px #02CAAB5B",
+        pageBtn:"0px 1px 6px 0px #035ECF48"
       },
       fontFamily: {
         archivo: "Archivo, sans-serif",

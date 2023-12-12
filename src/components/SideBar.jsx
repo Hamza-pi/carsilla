@@ -14,7 +14,7 @@ const SideBar = () => {
       subLinks: [
         { title: "Analytics", route: "/dashboard/analytics" },
         { title: "Seller Profiles", route: "/dashboard/sellerprofiles" },
-        { title: "User Profiles", route: "/dashboard" },
+        { title: "User Profiles", route: "/dashboard/userprofiles" },
       ],
     },
     {

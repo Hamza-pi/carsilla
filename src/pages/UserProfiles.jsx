@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Period from "../components/Period";
-import SellerProfCard from "../components/SellerProfCard";
 import TitleBar from "../components/TitleBar";
+import UserProfCard from "../components/UserProfCard";
 
-const SellerProfiles = () => {
+const UserProfiles = () => {
   const allData = [1, 2, 3, 4, 5, 6, 7, 8];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,7 +30,7 @@ const SellerProfiles = () => {
 
   return (
     <div>
-      <TitleBar title={"Service Providers Profiles"} />
+      <TitleBar title={"User Profiles"} />
       <Period
         periodTitle="Sales Period"
         viewTitle="Profiles"
@@ -42,7 +42,7 @@ const SellerProfiles = () => {
       <div className="profiles py-8">
         <div className="flex flex-col gap-6">
           {data.map((item, i) => (
-            <SellerProfCard key={i} />
+            <UserProfCard key={i} />
           ))}
         </div>
         <div className="pagination py-4 border-b flex items-center gap-2 border-[#E2E1E1] font-roboto">
@@ -51,8 +51,8 @@ const SellerProfiles = () => {
               key={i}
               className={`page_num w-[2rem] h-[2rem] ${
                 currentPage === i + 1
-                  ? "bg-darkBtn text-white border-black"
-                  : "bg-white text-darkBtn border-darkBtn"
+                  ? "bg-[#00BA9D] text-white border-[#00BA9D]"
+                  : "bg-[#F9F9F9] text-[#00BA9D] border-[#00BA9D]"
               } border rounded-md font-bold text-sm leading-[19.41px] text-center shadow-pageBtn`}
               onClick={() => paginate(p)}
             >
@@ -65,4 +65,4 @@ const SellerProfiles = () => {
   );
 };
 
-export default SellerProfiles;
+export default UserProfiles;
