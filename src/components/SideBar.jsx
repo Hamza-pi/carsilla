@@ -23,23 +23,23 @@ const SideBar = () => {
     },
     {
       title: "Orders",
-      route: "",
+      route: "/admin/ordersrequests",
     },
     {
       title: "Statistics",
-      route: "",
+      route: "/dashboard/analytics",
     },
     {
-      title: "Reviews",
-      route: "",
+      title: "Advertisements",
+      route: "/admin/ads",
     },
     {
       title: "Customers",
-      route: "",
+      route: "/dashboard/user",
     },
     {
       title: "Orders Requested",
-      route: "",
+      route: "/admin/ordersrequests",
     },
     {
       title: "Settings",
@@ -52,7 +52,7 @@ const SideBar = () => {
   }, [location.pathname]);
 
   return (
-    <div className="lg:w-auto scrollbar w-full relative">
+    <div className="lg:w-auto scrollbar w-full relative z-50">
       {/* Menu Icon */}
       <div className="lg:w-0 w-full px-4 bg-greyBg z-40">
         <FcMenu

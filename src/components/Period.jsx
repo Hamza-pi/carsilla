@@ -35,7 +35,7 @@ const Period = ({periodTitle,viewTitle,showing,from}) => {
           </div>
         </div>
         <div className="space-y-2 font-archivo font-emibold leading-[23px] text-textDark">
-          <p className="sm:text-right">View {viewTitle} {showing}/{from}</p>
+          <p className="sm:text-right">View {viewTitle} : {showing}/{from}</p>
           <div className="bg-white px-4 py-3 rounded-xl border border-borderColor flex items-center text-sm leading-[15.23px] text-[#1B1B1B] font-[500]">
             <label htmlFor="sort">Sort By:</label>
             <select

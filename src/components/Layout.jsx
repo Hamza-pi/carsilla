@@ -3,9 +3,10 @@ import UserNav from "./UserNav";
 import SideBar from "./SideBar";
 import { useLocation } from "react-router-dom";
 import NavBar from "./NavBar";
-
+import { useState } from "react";
 const Layout = () => {
   const location = useLocation();
+
   return (
     <div className="w-full flex lg:flex-row flex-col items-start">
       <SideBar />
@@ -16,6 +17,7 @@ const Layout = () => {
         ) : (
           <NavBar />
         )}
+
         <Outlet />
       </div>
     </div>

@@ -11,6 +11,8 @@ import UserProfiles from "./pages/UserProfiles";
 import UserSettings from "./pages/UserSettings";
 import SellerSettings from "./pages/SellerSettings";
 import Services from "./pages/Services"
+import OrderReq from "./pages/OrderReq";
+import Banners from "./pages/Banners";
 
 const App = () => {
   return (
@@ -29,6 +31,8 @@ const App = () => {
             <Route path="setting/user" element={<UserSettings/>}/>
             <Route path="setting" element={<SellerSettings/>}/>
             <Route path="services" element={<Services/>}/>
+            <Route path="ordersrequests" element={<OrderReq/>}/>
+            <Route path="ads" element={<Banners/>}/>
           </Route>
         </Routes>
       </Router>
